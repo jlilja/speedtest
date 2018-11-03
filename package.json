@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Internet speed test app piping results to InfluxDB",
   "main": "index.js",
+  "repository": "https://github.com/jlilja/speedtest",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Jonas Lilja <jonas@lilja.io>",
   "license": "ISC",
   "dependencies": {
     "fast-cli": "^2.2.0",
