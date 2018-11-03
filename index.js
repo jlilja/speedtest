@@ -14,9 +14,9 @@ const readSpeedTestData = async () => {
   }
 }
 
-const saveSpeedTestData = async (PORT, DATABASE, { value, unit }) => {
+const saveSpeedTestData = async (HOST, PORT, DATABASE, { value, unit }) => {
   const influxSchema = {
-    host: `0.0.0.0:${PORT}`,
+    host: `${HOST}:${PORT}`,
     database: DATABASE,
     schema: [
      {
@@ -38,12 +38,12 @@ const saveSpeedTestData = async (PORT, DATABASE, { value, unit }) => {
 }
 
 const measure = async () => {
-  const { PORT, DATABASE } = process.env
+  const { HOST, PORT, DATABASE } = process.env
 
   try {
     await runSpeedTest()
     const speed = await readSpeedTestData()
-    await saveSpeedTestData(PORT, DATABASE, speed)
+    await saveSpeedTestData(HOST, PORT, DATABASE, speed)
     console.log(`Recorded and saved ${speed.value} to Influx`)
   } catch (error) {
     console.log('error', error)

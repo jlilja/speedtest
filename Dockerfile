@@ -20,14 +20,11 @@ RUN chmod +x /usr/local/bin/dumb-init
 
 RUN npm install --production
 
+ENV HOST:192.168.1.1
 ENV PORT=8086
 ENV DATABASE=mydatabase
-
-# Grafana
-# host
-# database
-# user
-# password
+ENV USER=username
+ENV PASSWORD=password
 
 EXPOSE 80
 
